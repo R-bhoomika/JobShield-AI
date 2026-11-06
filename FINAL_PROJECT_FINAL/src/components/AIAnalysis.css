@@ -1,0 +1,107 @@
+/* JobShield – AI Analysis. Prefix: aia- (single column, top to bottom) */
+
+.aia{
+    --a:#22c55e; --a-soft:rgba(34,197,94,.14); --a-line:rgba(34,197,94,.45);
+    display:flex; flex-direction:column; gap:18px;
+    margin:24px 0; color:#fff;
+}
+.aia-caution{ --a:#f59e0b; --a-soft:rgba(245,158,11,.14); --a-line:rgba(245,158,11,.5); }
+.aia-danger { --a:#ef4444; --a-soft:rgba(239,68,68,.14);  --a-line:rgba(239,68,68,.5); }
+
+.aia-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:14px; flex-wrap:wrap; }
+.aia-head h1{ font-size:32px; margin-bottom:4px; }
+.aia-head p{ color:#94a3b8; font-size:16px; }
+.aia-badge{
+    padding:8px 18px; font-weight:700; border-radius:999px;
+    color:var(--a); background:var(--a-soft); border:1px solid var(--a-line);
+}
+
+.aia-top{ display:grid; grid-template-columns:minmax(260px,340px) minmax(0,1fr); gap:18px; }
+
+.aia-gauge-card,.aia-key,.aia-panel,.aia-unavail{
+    background:#1e293b; border:1px solid rgba(255,255,255,.08); border-radius:20px;
+}
+.aia-gauge-card{ padding:26px 22px; display:flex; flex-direction:column; align-items:center; }
+
+.aia-gauge{ position:relative; width:240px; height:120px; overflow:hidden; }
+.aia-gauge::before{
+    content:""; position:absolute; left:0; top:0; width:240px; height:240px; border-radius:50%;
+    background:conic-gradient(from 270deg, #22c55e 0deg, #f59e0b 90deg, #ef4444 180deg, transparent 180deg);
+}
+.aia-gauge-fill{
+    position:absolute; left:0; top:0; width:240px; height:240px; border-radius:50%;
+    background:conic-gradient(from 270deg, transparent 0 180deg, #1e293b 180deg);
+    transform-origin:50% 50%;
+    transition:transform 1s ease;
+}
+.aia-gauge-mask{
+    position:absolute; left:30px; top:30px; width:180px; height:180px; border-radius:50%; background:#1e293b;
+}
+.aia-gauge-num{ position:absolute; left:0; right:0; bottom:0; text-align:center; }
+.aia-gauge-num b{ font-size:44px; line-height:1; color:var(--a); }
+.aia-gauge-num small{ display:block; color:#94a3b8; font-size:12.5px; }
+.aia-scale{ display:flex; justify-content:space-between; width:240px; margin-top:8px; color:#64748b; font-size:12.5px; }
+
+.aia-key{ padding:24px; }
+.aia-key-top{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.aia-key h3{ font-size:19px; }
+.aia-by{ font-size:12.5px; color:#c4b5fd; background:rgba(139,92,246,.15); padding:4px 12px; border-radius:999px; }
+.aia-key p{ color:#e2e8f0; font-size:16.5px; line-height:1.7; }
+.aia-rest{ margin-top:10px; color:#cbd5e1 !important; }
+.aia-more{ margin-top:12px; background:none; border:none; color:#93c5fd; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; }
+
+.aia-panel{ padding:24px; }
+.aia-panel h2{ font-size:21px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.aia-panel h2 em{
+    font-style:normal; font-size:13px; padding:2px 10px; border-radius:99px;
+    color:#fecaca; background:rgba(239,68,68,.2);
+}
+
+.aia-flags{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; }
+.aia-flag{
+    display:flex; gap:12px; align-items:flex-start; padding:14px 16px;
+    background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.3); border-radius:14px;
+}
+.aia-num{
+    flex-shrink:0; width:24px; height:24px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:800; background:#ef4444; color:#fff;
+}
+.aia-ico{ font-size:18px; }
+.aia-flag p{ color:#fecaca; font-size:14.5px; line-height:1.5; }
+.aia-good{ padding:14px 18px; color:#bbf7d0; background:rgba(34,197,94,.1); border:1px solid rgba(34,197,94,.35); border-radius:14px; }
+
+.aia-pos{ margin-top:18px; }
+.aia-pos h4{ margin-bottom:8px; color:#e2e8f0; }
+.aia-pos ul{ list-style:none; display:flex; flex-direction:column; gap:6px; color:#bbf7d0; font-size:14.5px; }
+
+.aia-comps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:16px; }
+.aia-comps div{ padding:14px; background:#0f172a; border-radius:14px; text-align:center; }
+.aia-comps small{ display:block; color:#94a3b8; font-size:13px; }
+.aia-comps b{ font-size:28px; }
+.aia-comps div:last-child b{ color:var(--a); }
+
+.aia-break{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+.aia-break li{
+    display:flex; justify-content:space-between; gap:12px; padding:11px 14px;
+    background:#0f172a; border-radius:12px; font-size:14.5px; color:#e2e8f0;
+}
+.aia-break b{ color:#fca5a5; }
+
+.aia-web{ color:#cbd5e1; font-size:15.5px; line-height:1.7; margin-bottom:14px; }
+.aia-sources{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+.aia-sources a{
+    display:flex; flex-direction:column; gap:4px; padding:12px 14px; text-decoration:none;
+    background:#0f172a; border:1px solid #334155; border-radius:12px; transition:.2s;
+}
+.aia-sources a:hover{ border-color:#3b82f6; }
+.aia-sources b{ color:#93c5fd; font-size:14px; font-weight:600; }
+.aia-sources small{ color:#64748b; }
+
+.aia-unavail{ padding:36px; text-align:center; }
+.aia-unavail span{ font-size:38px; }
+.aia-unavail h2{ margin:8px 0; }
+.aia-unavail p{ color:#94a3b8; }
+
+@media(max-width:900px){ .aia-top{ grid-template-columns:1fr; } }
+@media(max-width:600px){ .aia-head h1{ font-size:25px; } .aia-flags{ grid-template-columns:1fr; } }

@@ -1,0 +1,30 @@
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# React
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# VS Code and system
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
